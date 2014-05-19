@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserRequest" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IUserRequest_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Totes.Model" />
+      <xsd:import schemaLocation="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserRequest_GetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SaveUserSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserSettings" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SaveUserSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_DeleteAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_DeleteAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_UpdatePricacySettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePricacySettings" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_UpdatePricacySettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePricacySettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_CreateStandardUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStandardUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_CreateStandardUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateStandardUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SendForgotPasswordEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendForgotPasswordEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SendForgotPasswordEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendForgotPasswordEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ValidateUserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ValidateUserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ShareItemOnFacebook_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShareItemOnFacebook" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ShareItemOnFacebook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShareItemOnFacebookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ShareItemOnTwitter_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShareItemOnTwitter" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_ShareItemOnTwitter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShareItemOnTwitterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsAll" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsFacebook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsFacebook" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsFacebook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsFacebookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsTwitter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsTwitter" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsTwitter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsTwitterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_FriendSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:FriendSearch" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_FriendSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FriendSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_RequestFriendInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestFriendInfo" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_RequestFriendInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestFriendInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_RespondFriendRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:RespondFriendRequest" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_RespondFriendRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RespondFriendRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendRequests" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessages" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_MarkMessageRead_InputMessage">
+    <wsdl:part name="parameters" element="tns:MarkMessageRead" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_MarkMessageRead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MarkMessageReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsWishList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsWishList" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetFriendsWishList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendsWishListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_CommitToBuy_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitToBuy" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_CommitToBuy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitToBuyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_UnCommitToBuy_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnCommitToBuy" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_UnCommitToBuy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnCommitToBuyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetCommittedItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommittedItems" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetCommittedItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommittedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetRecommendations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecommendations" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_GetRecommendations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecommendationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_MergeAccountFacebook_InputMessage">
+    <wsdl:part name="parameters" element="tns:MergeAccountFacebook" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_MergeAccountFacebook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MergeAccountFacebookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_MergeAccountTwitter_InputMessage">
+    <wsdl:part name="parameters" element="tns:MergeAccountTwitter" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_MergeAccountTwitter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MergeAccountTwitterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_AddItemToWishList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemToWishList" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_AddItemToWishList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemToWishListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_RemmoveItemToWishList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemmoveItemToWishList" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_RemmoveItemToWishList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemmoveItemToWishListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SaveWishListItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWishListItem" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SaveWishListItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWishListItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_AddAlternateItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlternateItem" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_AddAlternateItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlternateItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SubmitSuggestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitSuggestion" />
+  </wsdl:message>
+  <wsdl:message name="IUserRequest_SubmitSuggestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitSuggestionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserRequest">
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetUserInfo" message="tns:IUserRequest_GetUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetUserInfoResponse" message="tns:IUserRequest_GetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/SaveUserSettings" message="tns:IUserRequest_SaveUserSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/SaveUserSettingsResponse" message="tns:IUserRequest_SaveUserSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/DeleteAccount" message="tns:IUserRequest_DeleteAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/DeleteAccountResponse" message="tns:IUserRequest_DeleteAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePricacySettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/UpdatePricacySettings" message="tns:IUserRequest_UpdatePricacySettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/UpdatePricacySettingsResponse" message="tns:IUserRequest_UpdatePricacySettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStandardUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/CreateStandardUser" message="tns:IUserRequest_CreateStandardUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/CreateStandardUserResponse" message="tns:IUserRequest_CreateStandardUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendForgotPasswordEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/SendForgotPasswordEmail" message="tns:IUserRequest_SendForgotPasswordEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/SendForgotPasswordEmailResponse" message="tns:IUserRequest_SendForgotPasswordEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/ChangePassword" message="tns:IUserRequest_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/ChangePasswordResponse" message="tns:IUserRequest_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/ValidateUserLogin" message="tns:IUserRequest_ValidateUserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/ValidateUserLoginResponse" message="tns:IUserRequest_ValidateUserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShareItemOnFacebook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/ShareItemOnFacebook" message="tns:IUserRequest_ShareItemOnFacebook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/ShareItemOnFacebookResponse" message="tns:IUserRequest_ShareItemOnFacebook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShareItemOnTwitter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/ShareItemOnTwitter" message="tns:IUserRequest_ShareItemOnTwitter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/ShareItemOnTwitterResponse" message="tns:IUserRequest_ShareItemOnTwitter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsAll" message="tns:IUserRequest_GetFriendsAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsAllResponse" message="tns:IUserRequest_GetFriendsAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsFacebook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsFacebook" message="tns:IUserRequest_GetFriendsFacebook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsFacebookResponse" message="tns:IUserRequest_GetFriendsFacebook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsTwitter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsTwitter" message="tns:IUserRequest_GetFriendsTwitter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsTwitterResponse" message="tns:IUserRequest_GetFriendsTwitter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FriendSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/FriendSearch" message="tns:IUserRequest_FriendSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/FriendSearchResponse" message="tns:IUserRequest_FriendSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestFriendInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/RequestFriendInfo" message="tns:IUserRequest_RequestFriendInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/RequestFriendInfoResponse" message="tns:IUserRequest_RequestFriendInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RespondFriendRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/RespondFriendRequest" message="tns:IUserRequest_RespondFriendRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/RespondFriendRequestResponse" message="tns:IUserRequest_RespondFriendRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetFriendRequests" message="tns:IUserRequest_GetFriendRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetFriendRequestsResponse" message="tns:IUserRequest_GetFriendRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/SendMessage" message="tns:IUserRequest_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/SendMessageResponse" message="tns:IUserRequest_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetMessages" message="tns:IUserRequest_GetMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetMessagesResponse" message="tns:IUserRequest_GetMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageRead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/MarkMessageRead" message="tns:IUserRequest_MarkMessageRead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/MarkMessageReadResponse" message="tns:IUserRequest_MarkMessageRead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsWishList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsWishList" message="tns:IUserRequest_GetFriendsWishList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetFriendsWishListResponse" message="tns:IUserRequest_GetFriendsWishList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitToBuy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/CommitToBuy" message="tns:IUserRequest_CommitToBuy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/CommitToBuyResponse" message="tns:IUserRequest_CommitToBuy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnCommitToBuy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/UnCommitToBuy" message="tns:IUserRequest_UnCommitToBuy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/UnCommitToBuyResponse" message="tns:IUserRequest_UnCommitToBuy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommittedItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetCommittedItems" message="tns:IUserRequest_GetCommittedItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetCommittedItemsResponse" message="tns:IUserRequest_GetCommittedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/GetRecommendations" message="tns:IUserRequest_GetRecommendations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/GetRecommendationsResponse" message="tns:IUserRequest_GetRecommendations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MergeAccountFacebook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/MergeAccountFacebook" message="tns:IUserRequest_MergeAccountFacebook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/MergeAccountFacebookResponse" message="tns:IUserRequest_MergeAccountFacebook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MergeAccountTwitter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/MergeAccountTwitter" message="tns:IUserRequest_MergeAccountTwitter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/MergeAccountTwitterResponse" message="tns:IUserRequest_MergeAccountTwitter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToWishList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/AddItemToWishList" message="tns:IUserRequest_AddItemToWishList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/AddItemToWishListResponse" message="tns:IUserRequest_AddItemToWishList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemmoveItemToWishList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/RemmoveItemToWishList" message="tns:IUserRequest_RemmoveItemToWishList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/RemmoveItemToWishListResponse" message="tns:IUserRequest_RemmoveItemToWishList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveWishListItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/SaveWishListItem" message="tns:IUserRequest_SaveWishListItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/SaveWishListItemResponse" message="tns:IUserRequest_SaveWishListItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAlternateItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/AddAlternateItem" message="tns:IUserRequest_AddAlternateItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/AddAlternateItemResponse" message="tns:IUserRequest_AddAlternateItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSuggestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserRequest/SubmitSuggestion" message="tns:IUserRequest_SubmitSuggestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserRequest/SubmitSuggestionResponse" message="tns:IUserRequest_SubmitSuggestion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserRequest" type="tns:IUserRequest">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSettings">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SaveUserSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePricacySettings">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/UpdatePricacySettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStandardUser">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/CreateStandardUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendForgotPasswordEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SendForgotPasswordEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserLogin">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ValidateUserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShareItemOnFacebook">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ShareItemOnFacebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShareItemOnTwitter">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ShareItemOnTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsAll">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsFacebook">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsFacebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsTwitter">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FriendSearch">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/FriendSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestFriendInfo">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/RequestFriendInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RespondFriendRequest">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/RespondFriendRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendRequests">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageRead">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/MarkMessageRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsWishList">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitToBuy">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/CommitToBuy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnCommitToBuy">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/UnCommitToBuy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommittedItems">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetCommittedItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendations">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetRecommendations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeAccountFacebook">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/MergeAccountFacebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeAccountTwitter">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/MergeAccountTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToWishList">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/AddItemToWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemmoveItemToWishList">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/RemmoveItemToWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWishListItem">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SaveWishListItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlternateItem">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/AddAlternateItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSuggestion">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SubmitSuggestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IUserRequest" type="tns:IUserRequest">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IUserRequest_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSettings">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SaveUserSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePricacySettings">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/UpdatePricacySettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStandardUser">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/CreateStandardUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendForgotPasswordEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SendForgotPasswordEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserLogin">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ValidateUserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShareItemOnFacebook">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ShareItemOnFacebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShareItemOnTwitter">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/ShareItemOnTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsAll">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsFacebook">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsFacebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsTwitter">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FriendSearch">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/FriendSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestFriendInfo">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/RequestFriendInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RespondFriendRequest">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/RespondFriendRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendRequests">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkMessageRead">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/MarkMessageRead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendsWishList">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetFriendsWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitToBuy">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/CommitToBuy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnCommitToBuy">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/UnCommitToBuy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommittedItems">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetCommittedItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendations">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/GetRecommendations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeAccountFacebook">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/MergeAccountFacebook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeAccountTwitter">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/MergeAccountTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToWishList">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/AddItemToWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemmoveItemToWishList">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/RemmoveItemToWishList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWishListItem">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SaveWishListItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlternateItem">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/AddAlternateItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSuggestion">
+      <soap:operation soapAction="http://tempuri.org/IUserRequest/SubmitSuggestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserRequest">
+    <wsdl:port name="BasicHttpBinding_IUserRequest" binding="tns:BasicHttpBinding_IUserRequest">
+      <soap:address location="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IUserRequest" binding="tns:BasicHttpsBinding_IUserRequest">
+      <soap:address location="https://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,18 @@
+﻿<userInfo>
+  <id></id>
+  <fullName></fullName>
+  <firstName></firstName>
+  <lastName></lastName>
+  <gender></gender>
+  <profileImageUrl></profileImageUrl>
+  <isPremium></isPremium>
+  <age></age>
+  <preferredCountry></preferredCountry>
+  <dateCreated></dateCreated>
+  <wishList></wishList>
+  <facebookInfo></facebookInfo>
+  <twitterInfo></twitterInfo>
+  <standardUserInfo></standardUserInfo>
+  <settings></settings>
+  <privacySettings></privacySettings>
+</userInfo>

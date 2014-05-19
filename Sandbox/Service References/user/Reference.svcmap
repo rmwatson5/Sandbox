@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7b85ca3c-b681-451a-aa6b-85f844d64535" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserRequest.wsdl" MetadataType="Wsdl" ID="09737cf9-119e-4b9b-ba4e-6c432fcb99d7" SourceId="1" SourceUrl="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?wsdl" />
+    <MetadataFile FileName="UserRequest.xsd" MetadataType="Schema" ID="4e2dcf22-c44f-40da-acfb-1b1c02581a8a" SourceId="1" SourceUrl="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserRequest1.xsd" MetadataType="Schema" ID="3b892f62-0408-4177-b4c8-95beca685648" SourceId="1" SourceUrl="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserRequest2.xsd" MetadataType="Schema" ID="e87743d6-e417-4746-9862-0a40f43bac9e" SourceId="1" SourceUrl="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserRequest3.xsd" MetadataType="Schema" ID="0139cbc8-4107-4832-92a5-f85b5e05a39e" SourceId="1" SourceUrl="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

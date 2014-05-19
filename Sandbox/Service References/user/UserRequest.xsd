@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Totes.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Totes.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://beta.toteswishlist.com/Services/UserService/RequestHandler/UserRequest.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="UserInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FacebookInfo" type="tns:FacebookInfo" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPremium" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreferredCountry" type="tns:Country" />
+      <xs:element minOccurs="0" name="PrivacySettings" type="tns:PrivacySettings" />
+      <xs:element minOccurs="0" name="ProfileImageUrl" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Settings" nillable="true" type="q1:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="StandardUserInfo" type="tns:StandardUserInfo" />
+      <xs:element minOccurs="0" name="TwitterInfo" type="tns:TwitterInfo" />
+      <xs:element minOccurs="0" name="WishList" nillable="true" type="tns:ArrayOfItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:complexType name="FacebookInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="AzureAccessToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacebookUserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FacebookInfo" nillable="true" type="tns:FacebookInfo" />
+  <xs:simpleType name="Country">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="America" />
+      <xs:enumeration value="Canada" />
+      <xs:enumeration value="China" />
+      <xs:enumeration value="Germany" />
+      <xs:enumeration value="Spain" />
+      <xs:enumeration value="France" />
+      <xs:enumeration value="India" />
+      <xs:enumeration value="Italy" />
+      <xs:enumeration value="Japan" />
+      <xs:enumeration value="UnitedKingdom" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Country" nillable="true" type="tns:Country" />
+  <xs:complexType name="PrivacySettings">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppearOnSearches" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReceiveMessages" type="tns:PrivacyType" />
+      <xs:element minOccurs="0" name="SendRequests" type="tns:PrivacyType" />
+      <xs:element minOccurs="0" name="ViewWishList" type="tns:PrivacyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrivacySettings" nillable="true" type="tns:PrivacySettings" />
+  <xs:simpleType name="PrivacyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="YourMom" />
+      <xs:enumeration value="Everyone" />
+      <xs:enumeration value="Friends" />
+      <xs:enumeration value="NoOne" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PrivacyType" nillable="true" type="tns:PrivacyType" />
+  <xs:complexType name="StandardUserInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PasswordHash" type="xs:int" />
+      <xs:element minOccurs="0" name="UnlockCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardUserInfo" nillable="true" type="tns:StandardUserInfo" />
+  <xs:complexType name="TwitterInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccessTokenSecret" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AzureAccessToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwitterUserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TwitterInfo" nillable="true" type="tns:TwitterInfo" />
+  <xs:complexType name="ArrayOfItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Item" type="tns:Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItem" nillable="true" type="tns:ArrayOfItem" />
+  <xs:complexType name="Item">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlternateItems" nillable="true" type="tns:ArrayOfCompanyData" />
+      <xs:element minOccurs="0" name="BuyerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CompanyData" type="tns:CompanyData" />
+      <xs:element minOccurs="0" name="ItemId" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemImageBytes" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ItemImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserRating" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Item" nillable="true" type="tns:Item" />
+  <xs:complexType name="ArrayOfCompanyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompanyData" type="tns:CompanyData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompanyData" nillable="true" type="tns:ArrayOfCompanyData" />
+  <xs:complexType name="CompanyData">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyItemDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyItemId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyItemImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyItemName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyItemOffers" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyItemPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CompanyItemPromotion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyItemRating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyItemUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyValue" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompanyData" nillable="true" type="tns:CompanyData" />
+  <xs:simpleType name="SaveSettingsResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="NoAccountFound" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SaveSettingsResponse" nillable="true" type="tns:SaveSettingsResponse" />
+  <xs:simpleType name="DeleteAccountResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="AccountAlreadyDeleted" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DeleteAccountResponse" nillable="true" type="tns:DeleteAccountResponse" />
+  <xs:simpleType name="StandardResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StandardResponse" nillable="true" type="tns:StandardResponse" />
+  <xs:simpleType name="CreateStandardUserResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exception" />
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="UserAlreadyExists" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreateStandardUserResponseCode" nillable="true" type="tns:CreateStandardUserResponseCode" />
+  <xs:simpleType name="ChangePasswordResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exception" />
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="CurrentPasswordIncorrect" />
+      <xs:enumeration value="UserDoesNotExist" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ChangePasswordResponseCode" nillable="true" type="tns:ChangePasswordResponseCode" />
+  <xs:complexType name="StandardUserLoginResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseCode" type="tns:StandardUserLoginResponseCode" />
+      <xs:element minOccurs="0" name="UserInfo" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StandardUserLoginResponse" nillable="true" type="tns:StandardUserLoginResponse" />
+  <xs:simpleType name="StandardUserLoginResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exception" />
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="WrongPassword" />
+      <xs:enumeration value="UserDoesNotExist" />
+      <xs:enumeration value="AccountLocked" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StandardUserLoginResponseCode" nillable="true" type="tns:StandardUserLoginResponseCode" />
+  <xs:complexType name="PostItemCriteria">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IncludeImage" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ItemImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PostItemCriteria" nillable="true" type="tns:PostItemCriteria" />
+  <xs:simpleType name="PostItemResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="InvalidLogin" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PostItemResponse" nillable="true" type="tns:PostItemResponse" />
+  <xs:complexType name="ArrayOfPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:complexType name="Person">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsFriend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTotesUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrivacySettings" type="tns:PrivacySettings" />
+      <xs:element minOccurs="0" name="ProfileImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WishList" nillable="true" type="tns:ArrayOfItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="FriendSearchCriteria">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FacebookUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoogleUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsLiveUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwitterUsername" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FriendSearchCriteria" nillable="true" type="tns:FriendSearchCriteria" />
+  <xs:simpleType name="FriendRequestResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Exception" />
+      <xs:enumeration value="RequestAlreadySent" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FriendRequestResponse" nillable="true" type="tns:FriendRequestResponse" />
+  <xs:complexType name="SendMessageCriteria">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserIdFrom" type="xs:int" />
+      <xs:element minOccurs="0" name="UserIdTo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendMessageCriteria" nillable="true" type="tns:SendMessageCriteria" />
+  <xs:complexType name="ArrayOfMessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" type="tns:MessageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageInfo" nillable="true" type="tns:ArrayOfMessageInfo" />
+  <xs:complexType name="MessageInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="From" type="tns:Person" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageId" type="xs:int" />
+      <xs:element minOccurs="0" name="Read" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+  <xs:complexType name="CommitToBuyResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Buyer" type="tns:Person" />
+      <xs:element minOccurs="0" name="ResponseCode" type="tns:CommitToBuyResponseCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommitToBuyResponse" nillable="true" type="tns:CommitToBuyResponse" />
+  <xs:simpleType name="CommitToBuyResponseCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Exception" />
+      <xs:enumeration value="AlreadyCommited" />
+      <xs:enumeration value="ItemDoesNotExist" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CommitToBuyResponseCode" nillable="true" type="tns:CommitToBuyResponseCode" />
+  <xs:complexType name="ArrayOfCommittedItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommittedItem" type="tns:CommittedItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommittedItem" nillable="true" type="tns:ArrayOfCommittedItem" />
+  <xs:complexType name="CommittedItem">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Buyee" type="tns:Person" />
+      <xs:element minOccurs="0" name="ItemDetail" type="tns:Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommittedItem" nillable="true" type="tns:CommittedItem" />
+  <xs:complexType name="ArrayOfRecommendation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Recommendation" type="tns:Recommendation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecommendation" nillable="true" type="tns:ArrayOfRecommendation" />
+  <xs:complexType name="Recommendation">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Item" type="tns:Item" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recommendee" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Recommendation" nillable="true" type="tns:Recommendation" />
+  <xs:simpleType name="MergeAccountResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="NoSuchUser" />
+      <xs:enumeration value="AlreadyMerged" />
+      <xs:enumeration value="AccountAlreadyExists" />
+      <xs:enumeration value="CannotObtainSocialNetworkInfo" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MergeAccountResponse" nillable="true" type="tns:MergeAccountResponse" />
+  <xs:simpleType name="AddItemResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="NotPremium" />
+      <xs:enumeration value="NoAccountFound" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddItemResponse" nillable="true" type="tns:AddItemResponse" />
+  <xs:simpleType name="RemoveItemResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="NoSuchItem" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RemoveItemResponse" nillable="true" type="tns:RemoveItemResponse" />
+  <xs:simpleType name="SaveItemResponse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="NoSuchItem" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SaveItemResponse" nillable="true" type="tns:SaveItemResponse" />
+</xs:schema>
